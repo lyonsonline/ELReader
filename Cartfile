@@ -1,0 +1,4 @@
+github "Alamofire/Alamofire" ~> 4.4
+github "SVProgressHUD/SVProgressHUD"
+github "SnapKit/SnapKit" ~> 3.2.0
+github "cezheng/Fuzi" ~> 1.0.0
