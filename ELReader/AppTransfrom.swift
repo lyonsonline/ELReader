@@ -21,6 +21,7 @@ final class AppTransform {
         novelVC.book = book
         novelVC.didTapClose = {
             self.navigationController.popViewController(animated: true)
+            
         }
         navigationController.pushViewController(novelVC, animated: true)
     }
