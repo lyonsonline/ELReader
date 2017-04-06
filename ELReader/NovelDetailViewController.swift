@@ -39,21 +39,27 @@ class NovelDetailViewController: UIViewController {
             if mode != oldValue {
                 switch mode {
                 case .day:
+                    textView.textColor = UIColor.darkText
                     textView.backgroundColor = UIColor.white
+                    label.backgroundColor = UIColor.white
                 case .eyes:
+                    textView.textColor = UIColor.darkText
                     textView.backgroundColor = UIColor.cyan
+                    label.backgroundColor = UIColor.cyan
                 case .night:
                     textView.textColor = UIColor.darkGray
                     textView.backgroundColor = UIColor.black
+                    label.backgroundColor = UIColor.black
                 }
             }
         }
     }
     
     var url: String!
-    convenience init(url: String) {
+    convenience init(url: String, mode: ReadMode = .day) {
         self.init()
         self.url = url
+        self.mode = mode
     }
     
     override func viewDidLoad() {

@@ -22,7 +22,11 @@ class NovelViewController: UIViewController {
         case 1:
             print("章节")
         case 2:
-            print("阅读模式")
+            if mode == .day {
+                mode = .night
+            } else {
+                mode = .day
+            }
         case 3:
             print("设置")
         default:
@@ -33,7 +37,14 @@ class NovelViewController: UIViewController {
     @IBAction func close(_ sender: Any) {
         didTapClose()
     }
-    var mode: ReadMode = .day
+    var mode: ReadMode = .day {
+        didSet {
+            guard let vc = pageViewController.viewControllers?.first as? NovelDetailViewController else {
+                return
+            }
+            vc.mode = mode
+        }
+    }
     lazy var pageViewController: UIPageViewController = {
         let pageViewController = UIPageViewController(transitionStyle: .pageCurl, navigationOrientation: .horizontal, options: nil)
         pageViewController.view.frame = self.view.bounds
@@ -87,6 +98,9 @@ class NovelViewController: UIViewController {
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .fade
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
 }
 extension NovelViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -96,7 +110,7 @@ extension NovelViewController: UIPageViewControllerDelegate, UIPageViewControlle
         } else {
             self.book.currentChapterNumber -= 1
         }
-        return NovelDetailViewController(url: self.book.chapterURL())
+        return NovelDetailViewController(url: self.book.chapterURL(), mode: mode)
     }
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if self.book.currentChapterNumber == self.book.catalogues!.count - 1 {
@@ -104,6 +118,6 @@ extension NovelViewController: UIPageViewControllerDelegate, UIPageViewControlle
         } else {
             self.book.currentChapterNumber += 1
         }
-        return NovelDetailViewController(url: self.book.chapterURL())
+        return NovelDetailViewController(url: self.book.chapterURL(), mode: mode)
     }
 }
