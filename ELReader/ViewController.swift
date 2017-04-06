@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         segmentView.titles = ["日排行","周排行","月排行","总排行"]
         segmentView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -31,7 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             SVProgressHUD.dismiss(withDelay: 0.4)
             switch response.result {
             case .success(let value):
-                print(value)
+//                print(value)
                 self?.dataSource = Book.creatBooks(from: value)
                 self?.tableView.reloadData()
             case .failure(let error):
@@ -57,6 +58,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = dataSource[indexPath.row].name + dataSource[indexPath.row].category + dataSource[indexPath.row].author!
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelect(dataSource[indexPath.row])
     }
 
 }

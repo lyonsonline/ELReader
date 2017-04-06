@@ -26,11 +26,41 @@ protocol BaseBookProtocol {
     var category: String {get}
     var author: String? {get}
 }
-struct Book: BaseBookProtocol {
+class Book: BaseBookProtocol {
     let uri: String
     let name: String
     let category: String
     let author: String?
+    var currentChapterNumber: Int = 0
+    var catalogues: [(uri: String, title: String)]?
+    
+    init(uri: String, name: String, category: String, author: String? = nil) {
+        self.uri = uri
+        self.name = name
+        self.category = category
+        self.author = author
+    }
+    func catalogueURL() -> String {
+        return "http://www.ybdu.com/xiaoshuo" + self.uri
+    }
+    
+    func chapterURL(index: Int = -1) -> String {
+        if index == -1 {
+            return self.chapterURL(index: currentChapterNumber)
+        }
+        guard let catalogues = self.catalogues, index < catalogues.count else { return "" }
+        let catalogue = catalogues[index]
+        return "http://m.ybdu.com/xiaoshuo" + self.uri + catalogue.uri
+    }
+    
+    func chapterHeader(index: Int = -1) -> String {
+        if index == -1 {
+            return self.chapterHeader(index: currentChapterNumber)
+        }
+        guard let catalogues = self.catalogues, index >= catalogues.count else { return "" }
+        let catalogue = catalogues[index]
+        return catalogue.title
+    }
     
     static func creatBooks(from html: HTMLDocument) -> [Book] {
         return html.css(".list p").bookListFilterMap { (element) -> Book in

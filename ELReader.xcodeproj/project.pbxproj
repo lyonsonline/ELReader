@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9939D1761E948FB1008E0C9E /* NovelDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939D1751E948FB1008E0C9E /* NovelDetailViewController.swift */; };
+		9939D1781E94DAD0008E0C9E /* AppTransfrom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939D1771E94DAD0008E0C9E /* AppTransfrom.swift */; };
 		996093381E8104E700E7B0F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996093371E8104E700E7B0F2 /* AppDelegate.swift */; };
 		9960933A1E8104E700E7B0F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996093391E8104E700E7B0F2 /* ViewController.swift */; };
 		9960933D1E8104E700E7B0F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9960933B1E8104E700E7B0F2 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9939D1751E948FB1008E0C9E /* NovelDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NovelDetailViewController.swift; sourceTree = "<group>"; };
+		9939D1771E94DAD0008E0C9E /* AppTransfrom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTransfrom.swift; sourceTree = "<group>"; };
 		996093341E8104E700E7B0F2 /* ELReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ELReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		996093371E8104E700E7B0F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		996093391E8104E700E7B0F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +95,8 @@
 				99C45B831E8E05F700C3E036 /* Util.swift */,
 				99DC5BF81E83FA6100434CC3 /* Router.swift */,
 				99DFF2191E8E545900CA99D7 /* NovelViewController.swift */,
+				9939D1751E948FB1008E0C9E /* NovelDetailViewController.swift */,
+				9939D1771E94DAD0008E0C9E /* AppTransfrom.swift */,
 			);
 			path = ELReader;
 			sourceTree = "<group>";
@@ -207,6 +213,8 @@
 				99C45B841E8E05F700C3E036 /* Util.swift in Sources */,
 				996093381E8104E700E7B0F2 /* AppDelegate.swift in Sources */,
 				99F5B7281E8DECDC00A7D093 /* ELSegmentView.swift in Sources */,
+				9939D1761E948FB1008E0C9E /* NovelDetailViewController.swift in Sources */,
+				9939D1781E94DAD0008E0C9E /* AppTransfrom.swift in Sources */,
 				99DFF21A1E8E545900CA99D7 /* NovelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
