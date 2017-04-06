@@ -2,7 +2,7 @@
 ![demoGif](https://github.com/lyonsonline/ELReader/blob/master/ELReader.gif)
 ## Requirements
 - iOS 8.0+
-- Alamofire / SnapKit / Fuzi
+- Alamofire / SnapKit / Fuzi / SVProgressHUD
 - Carthage
 - Xcode 8.0+
 - Swift 3.0+
